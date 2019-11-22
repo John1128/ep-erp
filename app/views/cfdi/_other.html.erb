@@ -1,0 +1,120 @@
+<div class="col-12">
+    <div class="row">
+        <div class="col-5">
+
+            <div class="form-group row">
+                <label for="metodo_pago" class="col-sm-4 col-form-label"><%= I18n.t("other.metodo_pago")%></label>
+                <div class="col-sm-8">
+                    <select id="metodo_pago" class="form-control select2-hidden-accessible" data-placeholder="<%= I18n.t("other.metodo_pago")%>" tabindex="-1" aria-hidden="true">
+                        <option></option>
+                        <% MetodoPago.all.each do |mp| %>
+                            <option value="<%= mp.id %>"><%= mp.descripcion %></option>
+                        <% end %>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="form-group row">
+                <label for="forma_pago" class="col-sm-4 col-form-label"><%= I18n.t("other.forma_pago")%></label>
+                <div class="col-sm-8">
+                    <select id="forma_pago" class="form-control select2-hidden-accessible" data-placeholder="<%= I18n.t("other.forma_pago")%>" tabindex="-1" aria-hidden="true">
+                        <option></option>
+                        <% FormaPago.all.each do |fp| %>
+                            <option value="<%= fp.id %>"><%= fp.descripcion %></option>
+                        <% end %>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-5">
+            <div class="form-group row">
+                <label for="confirmacion" class="col-sm-4 col-form-label"><%= I18n.t("other.confirmacion")%></label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="confirmacion" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-5">
+            <div class="form-group row">
+                <label for="condicion_pago" class="col-sm-4 col-form-label"><%= I18n.t("other.condicion_pago")%></label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="condicion_pago" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10">
+            <div class="form-group row">
+                <label for="notas_cabcera" class="col-sm-2 col-form-label"><%= I18n.t("other.notas_cabecera")%></label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" id="notas_cabcera" rows="3"></textarea>
+                </div>
+            </div>          
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10">
+            <div class="form-group row">
+                <label for="notas_pie" class="col-sm-2 col-form-label"><%= I18n.t("other.notas_pie")%></label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" id="notas_pie" rows="3"></textarea>
+                </div>
+            </div>          
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-10">
+            <div class="form-group">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="cfdi_relacionado" value="1">
+                    <label class="custom-control-label" for="cfdi_relacionado"><%= I18n.t("other.cfdi_relacionado")%></label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10">
+            <div class="form-group row">
+                <label for="forma_pago" class="col-sm-2 col-form-label"><%= I18n.t("other.tipo_relacion")%></label>
+                <div class="col-sm-5">
+                    <select id="tipo_relacion" class="form-control select2-hidden-accessible" data-placeholder="<%= I18n.t("other.tipo_relacion")%>" tabindex="-1" aria-hidden="true">
+                        <option></option>
+                        <% TipoRelacion.all.each do |tr| %>
+                            <option value="<%= tr.id %>"><%= tr.descripcion %></option>
+                        <% end %>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10">
+            <div class="form-group row">
+                <label for="listado_folios" class="col-sm-2 col-form-label"><%= I18n.t("other.listado_folios")%></label>
+                <div class="col-sm-8">
+                    <textarea class="form-control" id="listado_folios" rows="3"></textarea>
+                </div>
+            </div>          
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-primary icon-left mr-3 float-md-right" id="generate_cfdi" type="button">
+                <%= I18n.t("cfdi.actions.generate")%>
+            </button>
+            <button class="btn btn-primary icon-left mr-3 float-md-right" id="save_cfdi" type="button">
+                <%= I18n.t("cfdi.actions.save")%>
+            </button>
+            <button class="btn btn-primary icon-left mr-3 float-md-right" id="otros_volver" type="button">
+                <%= I18n.t("cfdi.actions.back")%>
+            </button>
+        </div>
+    </div>
+</div>

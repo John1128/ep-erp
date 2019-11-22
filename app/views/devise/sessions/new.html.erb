@@ -1,0 +1,27 @@
+<%= devise_error_messages! %>
+<%=render partial: "layouts/devise_styles"%>
+
+<div class="p-signin">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name),:html => {:class => 'p-signin__form'}) do |f| %>
+    <h2 class="p-signin__form-heading"><%= I18n.t("devise_missing.login_title")%></h2>
+    <div class="p-signin__form-content">
+      <div class="row">
+        <div class="form-group col-md-12">
+          <%= f.label I18n.t("devise_missing.email")  %>
+          <%= f.email_field :email, class: 'form-control', placeholder: "usuario@dominio.com" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-12">
+          <%= f.label I18n.t("devise_missing.password") %>
+          <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+
+        </div>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-info btn-block btn-lg p-signin__form-submit"><%= I18n.t("devise_missing.go_login") %></button>
+      </div>
+
+    </div>
+  <% end %>
+</div>

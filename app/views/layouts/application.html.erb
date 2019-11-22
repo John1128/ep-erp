@@ -1,0 +1,130 @@
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta charset="utf-8" />
+  <title>ERP - EthicsGlobal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta content="" name="description" />
+  <meta content="" name="author" />
+  
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  
+
+  <%= csrf_meta_tags %>
+
+  <%= yield :head %>
+  
+</head>
+<body class="js-loading">
+
+  <div class="page-preloader js-page-preloader">
+    <div class="page-preloader__logo">
+      <%= image_tag("logo.png", class: "page-preloader__logo-image") %>
+    </div>
+    <div class="page-preloader__desc"><%= I18n.t("global_labels.erp")%></div>
+      <div class="page-preloader__loader">
+        <div class="page-preloader__loader-heading"><%= I18n.t("global_labels.loading")%></div>
+        <div class="progress progress-rounded page-preloader__loader-progress">
+        <div id="page-loader-progress-bar" class="progress-bar bg-info" role="progressbar" style="width: 10%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+    </div>
+    <div class="page-preloader__copyright">EthicsGlobal, 2019</div>
+  </div>
+
+  <div class="navbar navbar-light navbar-expand-lg">
+    <button class="sidebar-toggler" type="button">
+      <span class="ua-icon-sidebar-open sidebar-toggler__open"></span>
+      <span class="ua-icon-alert-close sidebar-toggler__close"></span>
+    </button>
+  
+
+    <span class="navbar-brand">
+      <a href="/"><%= image_tag("logo.png", class: "navbar-brand__logo") %></a>
+      
+    </span>
+
+    <span class="navbar-brand-sm">
+      <a href="/"><%= image_tag("logo.png", class: "navbar-brand__logo") %></a>
+      <span class="ua-icon-menu slide-nav-toggle"></span>
+    </span>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+      <span class="ua-icon-navbar-open navbar-toggler__open"></span>
+      <span class="ua-icon-alert-close navbar-toggler__close"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <div class="navbar__menu"></div>
+      <div class="dropdown navbar-dropdown">
+        <a class="dropdown-toggle navbar-dropdown-toggle navbar-dropdown-toggle__user" data-toggle="dropdown" href="#">
+          <%= image_tag("user-icon.png", class: "navbar-dropdown-toggle__user-avatar") %>
+          <span class="navbar-dropdown__user-name"><%= current_user.email %></span>
+        </a>
+        <div class="dropdown-menu navbar-dropdown-menu navbar-dropdown-menu__user">
+          <div class="navbar-dropdown-user-content">
+            
+            <div class="dropdown-info">
+              <%= link_to(destroy_user_session_path, {class: "dropdown-item navbar-dropdown__item"}) do %>
+                <%= I18n.t("global.logout") %>
+              <% end %>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="page-wrap">
+    <div class="sidebar-section">
+      <div>
+        <div class="sidebar-section__separator"><%= I18n.t("global_labels.erp")%></div>
+          <ul class="sidebar-section-nav">
+            <li class="sidebar-section-nav__item <% if @menu == 'home' %>is-active<% end %>">
+              <a class="sidebar-section-nav__link" href="/">
+                <span class="sidebar-section-nav__item-icon iconfont-control-panel"></span>
+                <span class="sidebar-section-nav__item-text"><%= I18n.t("main_menu.home")%></span>
+              </a>
+            </li>
+            
+            <li class="sidebar-section-nav__item <% if @menu == 'comprobante_list' or @menu == 'comprobante_new' %>is-active<% end %>">
+              <a class="sidebar-section-nav__link sidebar-section-nav__link-dropdown" href="#">
+                <span class="sidebar-section-nav__item-icon iconfont-layout"></span>
+                <span class="sidebar-section-nav__item-text"><%= I18n.t("main_menu.cfdi.title")%></span>
+              </a>
+              <ul class="sidebar-section-subnav">
+                <li class="sidebar-section-subnav__item">
+                  <%= link_to(cfdi_index_path, {class: "sidebar-section-subnav__link"}) do %>
+                    <%= I18n.t("main_menu.cfdi.list")%>
+                  <% end %>
+                </li>
+                <li class="sidebar-section-subnav__item">
+                  <%= link_to(new_cfdi_path, {class: "sidebar-section-subnav__link"}) do %>
+                    <%= I18n.t("main_menu.cfdi.new")%>
+                  <% end %>
+                </li>
+              </ul>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+      
+      <div class="page-content">
+          <%= yield %>
+      
+      </div>
+    </div>
+
+    
+  </div>
+
+  
+
+</body>
+<%= javascript_include_tag 'application' %>
+  <%= yield :javascript %>
+</html>

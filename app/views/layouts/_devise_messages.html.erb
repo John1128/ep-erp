@@ -1,0 +1,13 @@
+<% flash.each do |key, value| %>
+	<% unless value.empty? %>
+	  <div class="alert alert-<%= key %>">
+	    <a href="#" data-dismiss="alert" class="close">×</a>
+	      <ul>
+	        <li>
+	          <%= value %>
+	        </li>
+	      </ul>
+	  </div>
+  <% end %>
+
+<% end %>

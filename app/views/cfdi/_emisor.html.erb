@@ -1,0 +1,117 @@
+<div class="col-10">
+
+    <div class="form-group row">
+        <label for="emisor_rfc" class="col-sm-3 col-form-label"><%= I18n.t("emisor.rfc")%></label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="emisor_rfc" value="<%= @emisor.rfc %>" readonly data-toggle="tooltip" data-placement="top" title="RFC del Emisor" data-tippy-placement="bottom">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="emisor_razon_social" class="col-sm-3 col-form-label"><%= I18n.t("emisor.razon_social")%></label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="emisor_razon_social" value="<%= @emisor.razon_social %>" readonly data-toggle="tooltip" data-placement="top" title="<%= I18n.t("emisor.razon_social")%>" data-tippy-placement="bottom">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="emisor_regimen_fiscal" class="col-sm-3 col-form-label"><%= I18n.t("emisor.regimen_fiscal")%></label>
+        <div class="col-sm-9">
+            <select id="emisor_regimen_fiscal" class="form-control select2-hidden-accessible" data-placeholder="<%= I18n.t("emisor.regimen_fiscal")%>" tabindex="-1" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="<%= I18n.t("emisor.regimen_fiscal")%>" data-tippy-placement="bottom">
+                <option></option>
+                <% RegimenFiscal.all.each do |rf| %>
+                    <option value="<%= rf.id %>"><%= rf.descripcion %></option>
+                <% end %>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="emisor_codigo_postal" class="col-sm-3 col-form-label"><%= I18n.t("emisor.codigo_postal")%></label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="emisor_codigo_postal" value="<%= @emisor.codigo_postal %>" readonly data-toggle="tooltip" data-placement="top" title="<%= I18n.t("emisor.codigo_postal")%>" data-tippy-placement="bottom">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="emisor_email" class="col-sm-3 col-form-label"><%= I18n.t("emisor.email")%></label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="emisor_email" value="<%= @emisor.email %>" readonly>
+        </div>
+    </div>
+    <!--<div class="row">
+        <div class="col-lg-8 col-md-12">
+            <div class="form-group">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="emisor_sucursal" value="1">
+                    <label class="custom-control-label" for="emisor_sucursal"><%= I18n.t("emisor.sucursal")%></label>
+                </div>
+            </div>
+        </div>
+         
+    </div>-->
+    <hr>
+
+    <div class="row">
+        <div class="col-lg-8 col-md-12">
+            <div class="form-group">
+                <div class="custom-control custom-checkbox" data-toggle="tooltip" data-placement="top" title="Indicar si desea incluir la dirección del emisor (Opcional)" data-tippy-placement="bottom">
+                    <input type="checkbox" class="custom-control-input" id="emisor_set_direccion" value="1">
+                    <label class="custom-control-label" for="emisor_set_direccion"><%= I18n.t("emisor.direccion")%></label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="e_domicilio">
+        <div class="form-group row">
+            <label for="emisor_domicilio_calle" class="col-sm-2 col-form-label"><%= I18n.t("domicilio_fiscal.calle")%></label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="emisor_domicilio_calle" value="<%= @emisor.calle %>" readonly>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="emisor_domicilio_nro_e" class="col-sm-2 col-form-label"><%= I18n.t("domicilio_fiscal.numero_exterior")%></label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="emisor_domicilio_nro_e" value="<%= @emisor.numero_exterior %>" readonly>
+            </div>
+            <label for="emisor_domicilio_colonia" class="col-sm-2 col-form-label"><%= I18n.t("domicilio_fiscal.colonia")%></label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="emisor_domicilio_colonia" value="<%= @emisor.colonia %>" readonly>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="emisor_domicilio_nro_i" class="col-sm-2 col-form-label"><%= I18n.t("domicilio_fiscal.numero_interior")%></label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="emisor_domicilio_nro_i" value="<%= @emisor.numero_interior %>" readonly>
+            </div>
+            <label for="emisor_domicilio_municipio" class="col-sm-2 col-form-label"><%= I18n.t("domicilio_fiscal.municipio")%></label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="emisor_domicilio_municipio" value="<%= @emisor.municipio.nombre %>" readonly>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="emisor_domicilio_localidad" class="col-sm-2 col-form-label"><%= I18n.t("domicilio_fiscal.localidad")%></label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="emisor_domicilio_localidad" value="<%= @emisor.localidad %>" readonly>
+            </div>
+            <label for="emisor_domicilio_estado" class="col-sm-2 col-form-label"><%= I18n.t("domicilio_fiscal.estado")%></label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="emisor_domicilio_estado" value="<%= @emisor.municipio.estado.nombre %>" readonly>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="emisor_domicilio_referencia" class="col-sm-2 col-form-label"><%= I18n.t("domicilio_fiscal.referencia")%></label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="emisor_domicilio_referencia" value="<%= @emisor.referencia %>" readonly>
+            </div>
+            <label for="emisor_domicilio_codigo_postal" class="col-sm-2 col-form-label"><%= I18n.t("domicilio_fiscal.codigo_postal")%></label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="emisor_domicilio_codigo_postal" value="<%= @emisor.codigo_postal %>" readonly>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-primary icon-left mr-3 float-md-right" id="emisor_guardar" type="button">
+                <%= I18n.t("cfdi.actions.save_continue")%>
+            </button>
+        </div>
+    </div>
+</div>

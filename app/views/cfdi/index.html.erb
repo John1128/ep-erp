@@ -1,0 +1,386 @@
+<div class="subnav">
+    <div class="subnav__header">
+        <div class="subnav__heading">
+            Comprobantes Emitidos
+        </div>
+        <div class="subnav__header-side">
+            
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="main-container">
+        <div class="row">
+            <div class="col-md-3">
+                <button class="btn btn-primary icon-left mr-3" id="cancelar_cfdi" type="button">
+                    <%= I18n.t("cfdi.actions.cancelar_cfdi")%>
+                </button>
+            </div>
+        </div>
+        <br>
+        <div class"row">
+            <div class="col-md-12"><h4>Filtros</h4></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <select id="tipo_comprobante" data-placeholder="Tipo Comprobante">
+                </select>
+            </div>
+            <div class="col-md-2">
+                <select id="receptor" data-placeholder="RFC Receptor">
+                </select>
+            </div>
+            <div class="col-md-2">
+                <select id="serie" data-placeholder="Serie">
+                </select>
+            </div>
+            <div class="col-md-2">
+                <select id="estatus" data-placeholder="Estatus">
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12"> 
+                <div class="m-datatable">
+                    <table id="c_emitidos_datatable" class="table table-striped dataTable no-footer" role="grid" aria-describedby="datatable_info" style="font-size:12px;">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>ID</th>
+                                <th>Tipo</th>
+                                <th>RFC Receptor</th>
+                                <th>Nombre Receptor</th>
+                                <th>Serie</th>
+                                <th>Folio</th>
+                                <th>Fecha Emisión</th>
+                                <th>Fecha Corte</th>
+                                <th>Monto</th>
+                                <th>Moneda</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% Factura.all.each do |f| %>
+                                <tr>
+                                    <td></td>
+                                    <td><%= f.id %></td>
+                                    <td><%= f.tipo_comprobante.descripcion %></td>
+                                    <td><%= f.cliente.rfc %></td>
+                                    <td><%= f.cliente.razon_social %></td>
+                                    <td><%= f.serie %></td>
+                                    <td><%= f.folio %></td>
+                                    <td><%= f.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+                                    <td><%= f.fecha_corte %></td>
+                                    <td><%= f.total %></td>
+                                    <td><%= f.moneda.descripcion %></td>
+                                    <td><%= f.estatus.capitalize %></td>
+                                    <td>
+                                        <% if f.estatus != 'cancelado' %>
+                                            <% if !f.pdf_url.nil? %>
+                                                <a href="<%= f.pdf_url %>" title="Descargar PDF" download>
+                                                    <%= image_tag("pdf.png", style: 'width:13%;') %>
+                                                </a>
+                                                <a href="<%= f.xml_url %>" title="Descargar XML" download>
+                                                    <%= image_tag("xml.png", style: 'width:13%;') %>
+                                                </a>
+                                                <a href="<%= f.id %>" class="send_cfdi" title="Enviar">
+                                                    <%= image_tag("mail.png", style: 'width:13%;') %>
+                                                </a>
+                                            <% else %>
+                                                <button class="btn btn-primary generate_cfdi" data-cfdi="<%= f.id %>">
+                                                    <%= I18n.t("cfdi.actions.generate")%>
+                                                </button>
+                                            <% end %>
+                                            
+                                        <% end %>
+                                    </td>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% content_for :javascript do %>
+    <script>
+        $(function() {
+            var c_emitidos_table =$('#c_emitidos_datatable').DataTable({
+                "searching": true,
+                "language": dt_spanish,
+                "bLengthChange": false,
+                "bInfo": false,
+                initComplete: function () {
+                    this.api().columns([2]).every( function () {
+                        var column = this;
+                        var select = $("#tipo_comprobante"); 
+                        column.data().unique().sort().each( function ( d, j ) {
+                            select.append( '<option value="'+d+'">'+d+'</option>')
+                        });
+                        select.val("");
+                    });
+                    this.api().columns([3]).every( function () {
+                        var column = this;
+                        var select = $("#receptor"); 
+                        column.data().unique().sort().each( function ( d, j ) {
+                            select.append( '<option value="'+d+'">'+d+'</option>')
+                        });
+                        select.val("");
+                    });
+                    this.api().columns([5]).every( function () {
+                        var column = this;
+                        var select = $("#serie"); 
+                        column.data().unique().sort().each( function ( d, j ) {
+                            select.append( '<option value="'+d+'">'+d+'</option>')
+                        });
+                        select.val("");
+                    });
+                    this.api().columns([10]).every( function () {
+                        var column = this;
+                        var select = $("#estatus"); 
+                        column.data().unique().sort().each( function ( d, j ) {
+                            select.append( '<option value="'+d+'">'+d+'</option>')
+                        });
+                        select.val("");
+                    });
+                },
+                columnDefs: [ {
+                    orderable: false,
+                    className: 'select-checkbox',
+                    targets:   0
+                },
+                {
+                    targets: [ 1 ],
+                    visible: false
+                }
+                ],
+                select: {
+                    style:    'os',
+                    selector: 'td:first-child'
+                },
+                fnRowCallback: function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
+                    if(aData[10] == "Cancelado"){
+                        $('td', nRow).css('background-color', '#f2dede' );
+                    }else if(aData[10] == "Timbrado"){
+                        $('td', nRow).css('background-color', '#dff0d8');
+                    }
+                }
+            });
+
+            $("#c_emitidos_datatable_filter").hide();
+
+            $('#tipo_comprobante').on('change', function(){
+                var search = [];
+                $.each($('#tipo_comprobante option:selected'), function(){
+                    search.push($(this).val());
+                });
+            
+                search = search.join('|');
+                
+                c_emitidos_table.column(2).search(search, true, false).draw();  
+            });
+
+            $('#receptor').on('change', function(){
+                var search = [];
+                $.each($('#receptor option:selected'), function(){
+                    search.push($(this).val());
+                });
+            
+                search = search.join('|');
+                c_emitidos_table.column(3).search(search, true, false).draw();  
+            });
+            
+            $('#serie').on('change', function(){
+                var search = [];
+                $.each($('#serie option:selected'), function(){
+                    search.push($(this).val());
+                });
+            
+                search = search.join('|');
+                c_emitidos_table.column(5).search(search, true, false).draw();  
+            });
+
+            $('#estatus').on('change', function(){
+                var search = [];
+                $.each($('#estatus option:selected'), function(){
+                    search.push($(this).val());
+                });
+            
+                search = search.join('|');
+                c_emitidos_table.column(10).search(search, true, false).draw();  
+            });
+
+            $("#cancelar_cfdi").click(function(){
+                var tblData = c_emitidos_table.rows('.selected').data();
+                if(tblData.length > 0 ){
+                    if(tblData[0][10]=='Cancelado'){
+                        $.alert({
+                            title: 'Aviso',
+                            content: "<%= I18n.t("cfdi.messages.cancelado")%>",
+                            buttons: {
+                                ok:function(){
+                                     
+                                }
+                            }
+                        });
+                    }else{
+                        var id = tblData[0][1];
+                        $.confirm({
+                            title: '<%= I18n.t("global.confirm") %>',
+                            content: '' +
+                            '<form action="/cancel_cfdi" method="post" class="formName">' +
+                            '<div class="form-group">' +
+                            '<label><%= I18n.t("cfdi.actions.justification") %></label>' +
+                            '<textarea class="form-control" id="justificacion" name="justificacion" rows="3" required />' +
+                            '</div>' +
+                            '</form>',
+                            buttons: {
+                                formSubmit: {
+                                    text: 'Enviar',
+                                    btnClass: 'btn-blue',
+                                    action: function () {
+                                        var self = this;
+                                        data = {id:id,justificacion:$("#justificacion").val()}
+                                        return $.ajax({
+                                            url: '/cancel_cfdi',
+                                            data: data,
+                                            dataType: 'json',
+                                            method: 'post',
+                                            headers: {
+                                                'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                                            },
+                                        }).done(function (response) {
+                                            $.alert({
+                                                title: 'Aviso',
+                                                content: response.message,
+                                                buttons: {
+                                                    ok:function(){
+                                                        location.reload();
+                                                    }
+                                                }
+                                            });
+                                        }).fail(function(){
+                                            $.alert({
+                                                title: 'Aviso',
+                                                content: response.message,
+                                            });
+                                        });
+                                        console.log(data);
+                                    }
+                                },
+                                cerrar: function () {
+                                    
+                                },
+                            }
+                        });
+                    }
+                }else{
+                    $.alert({
+                        title: 'Aviso',
+                        content: "Debe seleccionar un comprobante",
+                    });
+                }
+            });
+
+            $('.generate_cfdi').click(function(){
+                var id = $(this).attr('data-cfdi');
+                $.confirm({
+                    title: '<%= I18n.t("global.confirm") %>',
+                    content: '<%= I18n.t("cfdi.actions.confirm_generate") %>',
+                    buttons: {
+                        confirmar: function () {
+                            $.confirm({
+                                buttons: {
+                                    ok: function(){
+                                        location.reload();
+                                    },
+                                    cerrar:function(){
+
+                                    }
+                                },
+                                content: function () {
+                                    var self = this;
+                                    return $.ajax({
+                                        url: '/generate_cfdi?id='+id,
+                                        dataType: 'json',
+                                        method: 'get'
+                                    }).done(function (response) {
+                                        self.setContent(response.message);
+                                        self.setTitle("Completado");
+                                        self.buttons.ok.show();
+                                        self.buttons.cerrar.hide();
+                                    }).fail(function(){
+                                        self.buttons.cerrar.show();
+                                        self.buttons.ok.hide();
+                                        self.setContent(response.message);
+                                    });
+                                }
+                            });
+                        },
+                        cancelar: function () {
+                            console.log('Nothing happend');
+                        }
+                    }
+                });
+            });
+
+            $('.send_cfdi').click(function(){
+                var id = $(this).attr('href');
+                $.confirm({
+                    title: '<%= I18n.t("global.confirm") %>',
+                    content: '' +
+                    '<form action="" method="post" class="formName">' +
+                    '<div class="form-group">' +
+                    '<label><%= I18n.t("cfdi.actions.send_email") %></label>' +
+                    '<input type="text" placeholder="Email" id="dest_email" class="form-control" required />' +
+                    '</div>' +
+                    '</form>',
+                    buttons: {
+                        formSubmit: {
+                            text: 'Enviar',
+                            btnClass: 'btn-blue',
+                            action: function () {
+                                var self = this;
+                                data = {id:id,email:$("#dest_email").val()}
+                                return $.ajax({
+                                    url: '/send_cfdi',
+                                    data: data,
+                                    dataType: 'json',
+                                    method: 'post',
+                                    headers: {
+                                        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                                    },
+                                }).done(function (response) {
+                                    $.alert({
+                                        title: 'Aviso',
+                                        content: response.message,
+                                        buttons: {
+                                            ok:function(){
+                                                
+                                            }
+                                        }
+                                    });
+                                }).fail(function(){
+                                    $.alert({
+                                        title: 'Aviso',
+                                        content: response.message,
+                                    });
+                                });
+                                console.log(data);
+                            }
+                        },
+                        cerrar: function () {
+                            
+                        },
+                    }
+                });
+                return false;
+            });
+
+        });
+    </script>
+<% end %>

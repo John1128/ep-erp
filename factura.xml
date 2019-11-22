@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd" version="3.2" folio="2824" fecha="2014-08-26T22:07:33" formaDePago="Pago en una sola exhibición" condicionesDePago="Contado" subTotal="600.00" TipoCambio="1.00" Moneda="MXN" total="600.00" tipoDeComprobante="ingreso" metodoDePago="tarjeta de debito" LugarExpedicion="México, Distrito Federal" NumCtaPago="5767" xmlns:cfdi="http://www.sat.gob.mx/cfd/3" sello="hKfb9IaqkxaM5qaTtZ/MviSheeBuXmCrVDH8vsnSO0/l2pnkELhj3lru8UHkHq2fgmETshEJs3P3UyIWxk5SfNSiZpq7r9DxqOfN5cX4fidiJQ0GlTmvvg0NuZEXbB9PmNcqyO0iwSgDS9t6eHSFkf76juF7X7YiUXJbI2qjEr4=" certificado="MIIEXTCCA0WgAwIBAgIUMDAwMDEwMDAwMDAzMDA5MTMyMjIwDQYJKoZIhvcNAQEFBQAwggGKMTgwNgYDVQQDDC9BLkMuIGRlbCBTZXJ2aWNpbyBkZSBBZG1pbmlzdHJhY2nDs24gVHJpYnV0YXJpYTEvMC0GA1UECgwmU2VydmljaW8gZGUgQWRtaW5pc3RyYWNpw7NuIFRyaWJ1dGFyaWExODA2BgNVBAsML0FkbWluaXN0cmFjacOzbiBkZSBTZWd1cmlkYWQgZGUgbGEgSW5mb3JtYWNpw7NuMR8wHQYJKoZIhvcNAQkBFhBhY29kc0BzYXQuZ29iLm14MSYwJAYDVQQJDB1Bdi4gSGlkYWxnbyA3NywgQ29sLiBHdWVycmVybzEOMAwGA1UEEQwFMDYzMDAxCzAJBgNVBAYTAk1YMRkwFwYDVQQIDBBEaXN0cml0byBGZWRlcmFsMRQwEgYDVQQHDAtDdWF1aHTDqW1vYzEVMBMGA1UELRMMU0FUOTcwNzAxTk4zMTUwMwYJKoZIhvcNAQkCDCZSZXNwb25zYWJsZTogQ2xhdWRpYSBDb3ZhcnJ1YmlhcyBPY2hvYTAeFw0xMzA5MjUxNjM0NTRaFw0xNzA5MjUxNjM0NTRaMIGpMR8wHQYDVQQDExZFTElaQUJFVEggUlVJWiBDQVpBUkVTMR8wHQYDVQQpExZFTElaQUJFVEggUlVJWiBDQVpBUkVTMR8wHQYDVQQKExZFTElaQUJFVEggUlVJWiBDQVpBUkVTMRYwFAYDVQQtEw1SVUNFNzUwMTI1RzhBMRswGQYDVQQFExJSVUNFNzUwMTI1TURGWlpMMDQxDzANBgNVBAsTBlVuaWRhZDCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA07tKSrxHKOvQlN/54Xp1fMCLCTDp8XwPrDMRPNA3XGRlfVurM0p2h53/Evc1P4RYpZvDZ3m5fpaPOUFHCWViJ+9JRwqasCo9opV+pgxX5WhvDPovcPhngBaJnMbezN2ENRraAd/iNah1A2wFn5aSft587M87VcpDrRVt8oGRyOcCAwEAAaMdMBswDAYDVR0TAQH/BAIwADALBgNVHQ8EBAMCBsAwDQYJKoZIhvcNAQEFBQADggEBAL/NrEKt+7hh6al34Pr7xDUvKUiCI9pw6JI4D8ixvuQHTjEsr55YUg0rAEgfPukWXBkp6LFNLx2Xp3KZwBfEMuCAvUpJQSuImbBBRPq2POskqIhXihNpplC6ygrK4PXYSXBFRFazRGrjK2EGgNKPF4M+VUU64qq5LDMqRXFiQc46J3fSnI2D3WMayxmzgaBVBIMjDpnL5mxPLeG0wMiXOQDbfEM0I2FDupI53NM7lqzPSw9Pz5KMTBopB+GwMg7h+aJSERcTA1Z4YwSv5PkTF8YMBBMFyzGyMTQyFQp+c0Bo3JkoMK9B0r5lkqwHQUySuemczozsKYbfJbGJEJCLYaU=" noCertificado="00001000000300913222">
+  <cfdi:Emisor rfc="RUCE750125G8A" nombre="ELIZABETH RUIZ CAZARES">
+    <cfdi:DomicilioFiscal calle="AV. EJERCITO NACIONAL" noExterior="1112" noInterior="1001" colonia="LOS MORALES" referencia="FRENTE AL DEPORTIVO MUNDET" municipio="MIGUEL HIDALGO" estado="Distrito Federal" pais="México" codigoPostal="11510" />
+    <cfdi:RegimenFiscal Regimen="Persona  Física con  Actividad Empresarial  y Profesional " />
+  </cfdi:Emisor>
+  <cfdi:Receptor rfc="RODF801211GN3" nombre="FRANCISCO JHONATHAN RODRIGUEZ DIAZ">
+    <cfdi:Domicilio calle="EJERCITO NACIONAL" noExterior="245" noInterior="821" colonia="ANAHUAC" municipio="MIGUEL HIDALGO" estado="DISTRITO FEDERAL" pais="México" codigoPostal="11370" />
+  </cfdi:Receptor>
+  <cfdi:Conceptos>
+    <cfdi:Concepto cantidad="1" unidad="SERVICIO" noIdentificacion="600" descripcion="ATENCIÓN DENTAL" valorUnitario="600" importe="600.00" />
+  </cfdi:Conceptos>
+  <cfdi:Impuestos totalImpuestosTrasladados="0.00">
+    <cfdi:Traslados>
+      <cfdi:Traslado impuesto="IVA" tasa="0.00" importe="0.00" />
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/TimbreFiscalDigital/TimbreFiscalDigital.xsd" version="1.0" UUID="653B5011-EA6A-4E42-B7CC-0198ED037CFB" FechaTimbrado="2014-08-26T22:07:34" selloCFD="hKfb9IaqkxaM5qaTtZ/MviSheeBuXmCrVDH8vsnSO0/l2pnkELhj3lru8UHkHq2fgmETshEJs3P3UyIWxk5SfNSiZpq7r9DxqOfN5cX4fidiJQ0GlTmvvg0NuZEXbB9PmNcqyO0iwSgDS9t6eHSFkf76juF7X7YiUXJbI2qjEr4=" noCertificadoSAT="00001000000301062628" selloSAT="TjyMaB1btpdKEdqKAat96TfkrYkkpv5MfSIf3L1eGBxxvCnj0uvuWDgnLZm/fQteqQzi2ZU19ACkOIJxGeavpy+68ymqbEfWwBu3r/fjNjR/UzLPA0PkcKl3fXEzHRxV8RHfdeFm7ZKnOrDIxYILeV8ZCvuJYOgqZBGN/TtfSB4=" />
+  </cfdi:Complemento>
+</cfdi:Comprobante>

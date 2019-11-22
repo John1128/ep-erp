@@ -1,0 +1,82 @@
+
+<div class="subnav">
+    <div class="subnav__header">
+        <div class="subnav__heading">
+            <%= I18n.t("cfdi.header.title")%>
+        </div>
+        <div class="subnav__header-side">
+            <span href="#" class="subnav__header-text subnav__header-side-item">
+                <a href="#" class="e-commerce__products-amount"><%= I18n.t("cfdi.header.catalog")%></a>
+            </span>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="main-container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <select id="tipo_comprobante" class="form-control select2-hidden-accessible" data-placeholder="<%= I18n.t('tipo_comprobante.resource_title') %>" tabindex="-1" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Tipo de Comprobante" data-tippy-placement="right">
+                        <option></option>
+                        <% TipoComprobante.all.each do |tc| %>
+                            <option value="<%= tc.id %>"><%= tc.descripcion %></option>
+                        <% end %>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-9">
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="main-container tabs-alpha">
+        <ul class="nav nav-tabs tabs-alpha__nav-tabs">
+            <li class="nav-item tabs-alpha__item" id="tab_emisor">
+                <a class="nav-link tabs-alpha__link active show" data-toggle="" href="">
+                    <%= I18n.t("cfdi.steps.sender")%>
+                </a>
+            </li>
+            <li class="nav-item tabs-alpha__item" id="tab_receptor">
+                <a class="nav-link tabs-alpha__link" data-toggle="" href="">
+                    <%= I18n.t("cfdi.steps.receiver")%> 
+                </a>
+            </li>
+            <li class="nav-item tabs-alpha__item" id="tab_conceptos">
+                <a class="nav-link tabs-alpha__link" data-toggle="" href="">
+                    <%= I18n.t("cfdi.steps.concepts")%> 
+                </a>
+            </li>
+            <li class="nav-item tabs-alpha__item" id="tab_otros">
+                <a class="nav-link tabs-alpha__link" data-toggle="" href="">
+                    <%= I18n.t("cfdi.steps.others")%>
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content tabs-alpha__tab-content">
+            <div class="tab-pane active show" id="tabs-alpha-emisor" role="tabpanel" aria-expanded="true">
+                <div class="row justify-content-center align-items-center">
+                    <%= render 'emisor' %>
+                </div>
+            </div>
+            <div class="tab-pane" id="tabs-alpha-receptor" role="tabpanel" aria-expanded="true">
+                <div class="row justify-content-center align-items-center">
+                    <%= render 'receptor' %>
+                </div>
+            </div>
+            <div class="tab-pane" id="tabs-alpha-conceptos" role="tabpanel" aria-expanded="true">
+                <div class="row justify-content-center align-items-center">
+                    <%= render 'concepto' %>
+                </div>
+            <div class="tab-pane" id="tabs-alpha-otros" role="tabpanel" aria-expanded="true">
+                <div class="row justify-content-center align-items-center">
+                    <%= render 'other' %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

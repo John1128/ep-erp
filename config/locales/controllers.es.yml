@@ -1,0 +1,10 @@
+es:
+  users: 
+    create:
+      alert: "Se ha registrado un error al guardar el usuario, favor revisar los campos correspondientes."
+  passwords:
+    edit:
+      notice: "Es necesario actualizar su contraseña, debe contener al menos una mayúscula, una minúscula y un digito."
+    update:
+      notice: "La contraseña se ha actualizado con éxito."
+      error: "La actualización de la contraseña ha fallado."

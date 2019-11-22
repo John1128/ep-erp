@@ -1,0 +1,31 @@
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta charset="utf-8" />
+  <title>ERP - EthicsGlobal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta content="" name="description" />
+  <meta content="" name="author" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  
+
+  <%= csrf_meta_tags %>
+
+  <%= yield :head %>
+  
+</head>
+<%= render partial: 'layouts/devise_messages' %>
+<body class="p-front">
+
+    <div class="p-front__content">
+        <%= yield %>
+    </div>
+</body>
+
+
+<%= javascript_include_tag 'application' %>
+</html>

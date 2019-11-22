@@ -1,0 +1,276 @@
+<div class="col-12">
+    <div class="row">
+        <div class="col-md-12">
+            <label for="producto_descripcion"><%= I18n.t("producto.descripcion")%></label>
+            <select id="producto_descripcion" class="form-control select2-hidden-accessible" data-placeholder="<%= I18n.t("producto.descripcion")%>" tabindex="-1" aria-hidden="true">
+                <option></option>
+                <% Producto.all.each do |p| %>
+                    <option value="<%= p.id %>"><%= p.descripcion %></option>
+                <% end %>
+            </select>
+        </div>
+    </div>
+    <div class="row" style="margin-top:10px;">
+        <div class="col-md-6">            
+            <div class="form-group">
+                <label for="producto_clave"><%= I18n.t("producto.clave")%></label>
+                <input type="text" class="form-control" id="producto_clave" readonly>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6" style="margin-top:5px;">
+            <div class="form-group">
+                <label for="unidad_medida"><%= I18n.t("concepto.unidad_medida")%></label>
+                <input type="text" class="form-control" id="unidad_medida">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="clave_unidad"><%= I18n.t("concepto.clave_unidad")%></label>
+            <select id="clave_unidad" class="form-control select2-hidden-accessible" data-placeholder="<%= I18n.t("concepto.clave_unidad")%>" tabindex="-1" aria-hidden="true">
+                <option></option>
+                <% ClaveUnidad.all.each do |c| %>
+                    <option value="<%= c.id %>"><%= c.nombre %></option>
+                <% end %>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="concepto_cantidad"><%= I18n.t("concepto.cantidad")%></label>
+                <input type="text" class="form-control allownumericwithdecimal" id="concepto_cantidad">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="concepto_identificacion"><%= I18n.t("concepto.identificacion")%></label>
+                <input type="text" class="form-control" id="concepto_identificacion">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="concepto_valor"><%= I18n.t("concepto.valor_unitario")%></label>
+                <input type="text" class="form-control" id="concepto_valor">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="concepto_importe"><%= I18n.t("concepto.importe")%></label>
+                <input type="text" class="form-control" id="concepto_importe">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="concepto_descuento"><%= I18n.t("concepto.descuento")%></label>
+                <input type="text" class="form-control" id="concepto_descuento">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="concepto_importe_descuento"><%= I18n.t("concepto.importe_descuento")%></label>
+                <input type="text" class="form-control" id="concepto_importe_descuento">
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    
+
+    <div class="row">
+        <div class="col-md-12">
+            <h4><span class="badge badge-info mb-3 mr-3"><%= I18n.t("concepto.impuestos")%></span></h4>
+        </div>
+    </div>
+
+    <!--<div class="row">
+        <div class="col-lg-8 col-md-12">
+            <div class="form-group">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="impuesto_iva" value="1">
+                    <label class="custom-control-label" for="impuesto_iva"><%= I18n.t("concepto.impuesto_iva")%></label>
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+    <div class="row">
+        <div class="col-md-2">
+            <label for="impuesto_tipo"><%= I18n.t("concepto.impuesto_tipo")%></label>
+            <select id="impuesto_tipo" class="form-control select2-hidden-accessible data_imp" data-placeholder="" tabindex="-1" aria-hidden="true">
+                <option></option>
+                <% TipoImpuesto.all.each do |ti| %>
+                    <option value="<%= ti.id %>"><%= ti.descripcion %></option>
+                <% end %>
+            </select>
+        </div>
+        <div class="col-md-2" style="margin-top:5px;">
+            <div class="form-group">
+                <label for="impuesto_base"><%= I18n.t("concepto.impuesto_base")%></label>
+                <input type="text" class="form-control data_imp" id="impuesto_base">
+            </div>
+        </div>
+        <div class="col-md-1">
+            <label for="impuesto"><%= I18n.t("concepto.impuesto")%></label>
+            <select id="impuesto" class="form-control select2-hidden-accessible data_imp" data-placeholder="" tabindex="-1" aria-hidden="true">
+                <option></option>
+                <% Impuesto.all.each do |i| %>
+                    <option value="<%= i.id %>"><%= i.descripcion %></option>
+                <% end %>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <label for="tipo_factor"><%= I18n.t("concepto.tipo_factor")%></label>
+            <select id="tipo_factor" class="form-control select2-hidden-accessible data_imp" data-placeholder="" tabindex="-1" aria-hidden="true">
+                <option></option>
+                <% TipoFactor.all.each do |tf| %>
+                    <option value="<%= tf.id %>"><%= tf.descripcion %></option>
+                <% end %>
+            </select>
+        </div>
+        <div class="col-md-2" style="margin-top:5px;">
+            <div class="form-group">
+                <label for="tasa_cuota"><%= I18n.t("concepto.tasa_cuota")%></label>
+                <input type="text" class="form-control data_imp" id="tasa_cuota">
+            </div>
+        </div>
+        <div class="col-md-2" style="margin-top:5px;">
+            <div class="form-group">
+                <label for="impuesto_importe"><%= I18n.t("concepto.impuesto_importe")%></label>
+                <input type="text" class="form-control data_imp" id="impuesto_importe">
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                <label><%= I18n.t("global_labels.actions")%></label>
+                <button id="addImpuesto" class="btn btn-block btn-outline-info" type="button"><%= I18n.t("global_labels.add")%></button>
+            </div>
+        </div>
+        <hr>
+
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-12"> 
+            <div class="m-datatable">
+                <table id="impuestos_datatable" class="table table-striped dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                    <thead>
+                        <tr>
+                            <th><%= I18n.t("concepto.impuesto_tipo")%></th>
+                            <th><%= I18n.t("concepto.impuesto_base")%></th>
+                            <th><%= I18n.t("concepto.impuesto")%></th>
+                            <th><%= I18n.t("concepto.tipo_factor")%></th>
+                            <th><%= I18n.t("concepto.tasa_cuota")%></th>
+                            <th><%= I18n.t("concepto.impuesto_importe")%></th>
+                            <th><%= I18n.t("global_labels.actions")%></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <button id="guardar_concepto" class="btn btn-primary icon-left mr-3 float-md-right" type="button">
+                <%= I18n.t("cfdi.actions.agregar_concepto")%>
+            </button>
+        </div>
+    </div>
+
+
+    <hr><hr>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h4><span class="badge badge-info mb-3 mr-3"><%= I18n.t("concepto.agregados")%></span></h4>
+        </div>
+    </div>
+
+    
+    <div class="row">
+        <div class="col-md-12"> 
+            <div class="m-datatable">
+                <table id="conceptos_datatable" class="table table-striped dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                    <thead>
+                        <tr>
+                            <th><%= I18n.t("producto.descripcion")%></th>
+                            <th><%= I18n.t("concepto.cantidad")%></th>
+                            <th><%= I18n.t("concepto.valor_unitario")%></th>
+                            <th><%= I18n.t("concepto.importe")%></th>
+                            <th><%= I18n.t("concepto.descuento")%></th>
+                            <th><%= I18n.t("global_labels.actions")%></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <hr><hr>
+    <div class="row">
+        <div class="col-md-12">
+            <h4><span class="badge badge-info mb-3 mr-3"><%= I18n.t("concepto.totales")%></span></h4>
+        </div>
+    </div>
+
+
+    <div class="form-group row">
+        <label for="conceptos_total" class="col-sm-2 col-form-label"><%= I18n.t("concepto.total")%></label>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" id="conceptos_total" readonly>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="conceptos_subtotal" class="col-sm-2 col-form-label"><%= I18n.t("concepto.subtotal")%></label>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" id="conceptos_subtotal" readonly>
+        </div>
+        <label for="conceptos_descuento" class="col-sm-2 col-form-label"><%= I18n.t("concepto.descuento")%></label>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" id="conceptos_descuento" readonly>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="conceptos_imp_traslados" class="col-sm-2 col-form-label"><%= I18n.t("concepto.traslados")%></label>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" id="conceptos_imp_traslados" readonly>
+        </div>
+        <label for="conceptos_imp_retenidos" class="col-sm-2 col-form-label"><%= I18n.t("concepto.retenciones")%></label>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" id="conceptos_imp_retenidos" readonly>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="moneda" class="col-sm-2 col-form-label"><%= I18n.t("concepto.moneda")%></label>
+        <div class="col-sm-3">
+            <select id="moneda" class="form-control select2-hidden-accessible" data-placeholder="" tabindex="-1" aria-hidden="true">
+                <option></option>
+                <% Moneda.all.each do |m| %>
+                    <option value="<%= m.id %>"><%= m.descripcion %></option>
+                <% end %>
+            </select>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-primary icon-left mr-3 float-md-right" id="conceptos_guardar" type="button">
+                <%= I18n.t("cfdi.actions.save_continue")%>
+            </button>
+            <button class="btn btn-primary icon-left mr-3 float-md-right" id="conceptos_volver" type="button">
+                <%= I18n.t("cfdi.actions.back")%>
+            </button>
+        </div>
+    </div>
+
+</div>

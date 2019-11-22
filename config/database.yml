@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 15000
+  encoding: unicode
+development:
+  <<: *default
+  database: <%= ENV['RDS_ERP_DB'] %>
+  host: <%= ENV['RDS_ERP_HOST'] %>
+  username: <%= ENV['RDS_ERP_USERNAME'] %>
+  password: <%= ENV['RDS_ERP_PASSWORD'] %>
+test:
+  <<: *default
+  database: <%= ENV['RDS_ERP_DB'] %>
+  host: <%= ENV['RDS_ERP_HOST'] %>
+  username: <%= ENV['RDS_ERP_USERNAME'] %>
+  password: <%= ENV['RDS_ERP_PASSWORD'] %>
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>

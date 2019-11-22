@@ -1,0 +1,284 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+    language_name: "English"
+    activemodel:
+      attributes:
+        user:
+          current_password: 'Current password'
+    date:
+      abbr_day_names:
+      - Sun.
+      - Mon.
+      - Tue.
+      - Wed.
+      - Thu.
+      - Fri.
+      - Sat.
+      abbr_month_names:
+      - 
+      - Jan.
+      - Feb.
+      - Mar.
+      - Apr.
+      - May.
+      - Jun.
+      - Jul.
+      - Aug.
+      - Sep.
+      - Oct.
+      - Nov.
+      - Dec.
+      day_names:
+      - Sunday
+      - Monday
+      - Tuesday
+      - Wednesday
+      - Thursday
+      - Friday
+      - Saturday
+      formats:
+        default: "%d/%m/%Y"
+        long: "%A, %d de %B de %Y"
+        short: "%d de %b"
+      month_names:
+      - 
+      - January
+      - February
+      - March
+      - April
+      - May
+      - June
+      - July
+      - August 
+      - September
+      - October
+      - November
+      - December
+      order:
+      - :day
+      - :month
+      - :year
+    datetime:
+      distance_in_words:
+        about_x_hours:
+          one: about 1 hour
+          other: about %{count} hours
+        about_x_months:
+          one: about 1 month
+          other: about %{count} months
+        about_x_years:
+          one: about 1 year
+          other: about %{count} years
+        almost_x_years:
+          one: almost 1 year
+          other: almost %{count} years
+        half_a_minute: half a minute
+        less_than_x_minutes:
+          one: less than 1 minute
+          other: less than %{count} minutes
+        less_than_x_seconds:
+          one: less than 1 second
+          other: less than  %{count} seconds
+        over_x_years:
+          one: more than 1 year
+          other: more than %{count} years
+        x_days:
+          one: 1 day
+          other: "%{count} days"
+        x_minutes:
+          one: 1 minute
+          other: "%{count} minutes"
+        x_months:
+          one: 1 month
+          other: "%{count} months"
+        x_seconds:
+          one: 1 second
+          other: "%{count} seconds"
+      prompts:
+        day: Day
+        hour: Hour
+        minute: Minute
+        month: Month
+        second: Seconds
+        year: Year
+    datepicker:
+      range:
+        applyLabel: Apply
+        cancelLabel: Cancel
+        fromLabel: From
+        toLabel: To
+    errors:
+      format: "%{attribute} %{message}"
+      messages:
+        accepted: must be accepted
+        blank: cannot be blank
+        present: must be blank
+        confirmation: does not match
+        empty: cannot be empty
+        equal_to: must be equal to %{count}
+        even: must be  a pair number
+        exclusion: is reserved
+        greater_than: must be greater than %{count}
+        greater_than_or_equal_to: must be greater or equal to %{count}
+        inclusion: is not included on the list
+        invalid: is invalid
+        less_than: must be less than %{count}
+        less_than_or_equal_to: must be less or equal to %{count}
+        not_a_number: is not a number
+        not_an_integer: must be integer
+        odd: must be odd
+        record_invalid: 'Record invalid: %{errors}'
+        restrict_dependent_destroy:
+          one: The record cannot be deleted because there are %{record} dependent record
+          many: The record cannot be deleted because there are %{record} dependent records
+        taken: has been taken
+        too_long:
+          one: is too long (1 max character)
+          other: is too long (max %{count} characters)
+        too_short:
+          one: is too short (min 1 character)
+          other: is too short (min %{count} characters)
+        wrong_length:
+          one: wrong length (must be 1 character)
+          other: wrong length (must be %{count} characters)
+        other_than: must be different to %{count}
+      template:
+        body: 'Make sure that the following fields are valid:'
+        header:
+          one: "%{model} cannot save because 1 error"
+          other: "%{model} cannot be saved because %{count} errors"
+    helpers:
+      select:
+        prompt: Plese select
+      submit:
+        create: Create %{model}
+        submit: Save %{model}
+        update: Update %{model}
+    number:
+      currency:
+        format:
+          delimiter: ","
+          format: "%u%n"
+          precision: 2
+          separator: "."
+          significant: false
+          strip_insignificant_zeros: false
+          unit: "$"
+      format:
+        delimiter: ","
+        precision: 2
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+      human:
+        decimal_units:
+          format: "%n %u"
+          units:
+            billion: billions
+            million: million
+            quadrillion: quadrillions
+            thousand: thousand
+            trillion: trillion
+            unit: ''
+        format:
+          delimiter: ","
+          precision: 3
+          significant: true
+          strip_insignificant_zeros: true
+        storage_units:
+          format: "%n %u"
+          units:
+            byte:
+              one: Byte
+              other: Bytes
+            gb: GB
+            kb: KB
+            mb: MB
+            tb: TB
+      percentage:
+        format:
+          delimiter: ","
+          format: "%n%"
+      precision:
+        format:
+          delimiter: ","
+    support:
+      array:
+        last_word_connector: " y "
+        two_words_connector: " y "
+        words_connector: ", "
+    time:
+      am: am
+      formats:
+        default: "%a, %d %b de %Y at %H:%M:%S %Z"
+        long: "%A, %d %B %Y at %I:%M %p"
+        short: "%d %b at %H:%M hrs"
+      pm: pm
+    devise_missing:
+      resources_names:
+        user: "user"
+        admin_user: "administrator"
+      login_title: "Login"
+      email: "Email"
+      password: "Password"
+      current_password: "Current password"
+      remember_me: "Remember me"
+      go_login: "Connect"
+      resend_unlock_instructions_title: "Resend unlock instructions"
+      resend_unlock_instructions_button: "Send email"
+      email_resend_unlock: "Email"
+      emails:
+        hello: "Hello"
+        locked_reason: "Your account has been blocked because you reached the failed login limit attempts."
+        click_to_unlock: "Click on the link to unlock your account."
+        unlock_link_label: "Unlock my account"
+    global_labels:
+      yeap: "yes"
+      nope: "no"
+      next: "Next"
+      previous: "Previous"
+      first: "First"
+      finish: "Finish"
+      months: ["January","February","March","April","May","June","July","August","September","October","November","December"]
+      form_validation:
+        required: "This field is required."
+      stat_table:
+        value: "Value"
+        qty: "Amount"
+        of_total: "Percent"
+        total: "Total"
+      back_to: "Back to"  
+      back_to_cases: "All cases"
+      back_to_case: "Case view"   
+      view_details: "View details"
+      results: "Results"

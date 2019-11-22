@@ -1,0 +1,447 @@
+es:
+    language_name: "Español"
+    activemodel:
+      attributes:
+        user:
+          current_password: 'Contraseña actual'
+    date:
+      abbr_day_names:
+      - dom
+      - lun
+      - mar
+      - mié
+      - jue
+      - vie
+      - sáb
+      abbr_month_names:
+      - 
+      - ene
+      - feb
+      - mar
+      - abr
+      - may
+      - jun
+      - jul
+      - ago
+      - sep
+      - oct
+      - nov
+      - dic
+      day_names:
+      - domingo
+      - lunes
+      - martes
+      - miércoles
+      - jueves
+      - viernes
+      - sábado
+      formats:
+        default: "%d/%m/%Y"
+        long: "%A, %d de %B de %Y"
+        short: "%d de %b"
+      month_names:
+      - 
+      - enero
+      - febrero
+      - marzo
+      - abril
+      - mayo
+      - junio
+      - julio
+      - agosto
+      - septiembre
+      - octubre
+      - noviembre
+      - diciembre
+      order:
+      - :day
+      - :month
+      - :year
+    datetime:
+      distance_in_words:
+        about_x_hours:
+          one: cerca de 1 hora
+          other: cerca de %{count} horas
+        about_x_months:
+          one: cerca de 1 mes
+          other: cerca de %{count} meses
+        about_x_years:
+          one: cerca de 1 año
+          other: cerca de %{count} años
+        almost_x_years:
+          one: casi 1 año
+          other: casi %{count} años
+        half_a_minute: medio minuto
+        less_than_x_minutes:
+          one: menos de 1 minuto
+          other: menos de %{count} minutos
+        less_than_x_seconds:
+          one: menos de 1 segundo
+          other: menos de %{count} segundos
+        over_x_years:
+          one: más de 1 año
+          other: más de %{count} años
+        x_days:
+          one: 1 día
+          other: "%{count} días"
+        x_minutes:
+          one: 1 minuto
+          other: "%{count} minutos"
+        x_months:
+          one: 1 mes
+          other: "%{count} meses"
+        x_seconds:
+          one: 1 segundo
+          other: "%{count} segundos"
+      prompts:
+        day: Día
+        hour: Hora
+        minute: Minuto
+        month: Mes
+        second: Segundos
+        year: Año
+    datepicker:
+      range:
+        applyLabel: Aplicar
+        cancelLabel: Cancelar
+        fromLabel: Desde
+        toLabel: Hasta
+    errors:
+      format: "%{attribute} %{message}"
+      messages:
+        accepted: debe ser aceptado
+        blank: no puede estar en blanco
+        present: debe estar en blanco
+        confirmation: no coincide
+        empty: no puede estar vacío
+        equal_to: debe ser igual a %{count}
+        even: debe ser un número par
+        exclusion: está reservado
+        greater_than: debe ser mayor que %{count}
+        greater_than_or_equal_to: debe ser mayor o igual que %{count}
+        inclusion: no está incluido en la lista
+        invalid: es inválido
+        less_than: debe ser menor que %{count}
+        less_than_or_equal_to: debe ser menor o igual que %{count}
+        not_a_number: no es un número
+        not_an_integer: debe ser un entero
+        odd: debe ser un número non
+        record_invalid: 'La validación falló: %{errors}'
+        restrict_dependent_destroy:
+          one: El registro no puede ser eliminado pues existe un %{record} dependiente
+          many: El registro no puede ser eliminado pues existen %{record} dependientes
+        taken: ya ha sido tomado
+        too_long:
+          one: es demasiado largo (máximo 1 caracter)
+          other: es demasiado largo (máximo %{count} caracteres)
+        too_short:
+          one: es demasiado corto (mínimo 1 caracter)
+          other: es demasiado corto (mínimo %{count} caracteres)
+        wrong_length:
+          one: longitud errónea (debe ser de 1 caracter)
+          other: longitud errónea (debe ser de %{count} caracteres)
+        other_than: debe ser diferente a %{count}
+      template:
+        body: 'Revise que los siguientes campos sean válidos:'
+        header:
+          one: "%{model} no pudo guardarse debido a 1 error"
+          other: "%{model} no pudo guardarse debido a %{count} errores"
+    helpers:
+      select:
+        prompt: Por favor selecciona
+      submit:
+        create: Crear %{model}
+        submit: Guardar %{model}
+        update: Actualizar %{model}
+    number:
+      currency:
+        format:
+          delimiter: ","
+          format: "%u%n"
+          precision: 2
+          separator: "."
+          significant: false
+          strip_insignificant_zeros: false
+          unit: "$"
+      format:
+        delimiter: ","
+        precision: 2
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+      human:
+        decimal_units:
+          format: "%n %u"
+          units:
+            billion: mil millones
+            million: millón
+            quadrillion: mil billones
+            thousand: mil
+            trillion: billón
+            unit: ''
+        format:
+          delimiter: ","
+          precision: 3
+          significant: true
+          strip_insignificant_zeros: true
+        storage_units:
+          format: "%n %u"
+          units:
+            byte:
+              one: Byte
+              other: Bytes
+            gb: GB
+            kb: KB
+            mb: MB
+            tb: TB
+      percentage:
+        format:
+          delimiter: ","
+          format: "%n%"
+      precision:
+        format:
+          delimiter: ","
+    support:
+      array:
+        last_word_connector: " y "
+        two_words_connector: " y "
+        words_connector: ", "
+    time:
+      am: am
+      formats:
+        default: "%a, %d de %b de %Y a las %H:%M:%S %Z"
+        long: "%A, %d de %B de %Y a las %I:%M %p"
+        short: "%d de %b a las %H:%M hrs"
+      pm: pm
+    devise_missing:
+      resources_names:
+        user: "usuario"
+        admin_user: "administrador"
+      login_title: "Ingresar a su cuenta"
+      email: "Correo electrónico"
+      password: "Contraseña"
+      current_password: "Contraseña actual"
+      remember_me: "recordarme"
+      go_login: "Iniciar sesión"
+      resend_unlock_instructions_title: "Enviar instrucciones de desbloqueo"
+      resend_unlock_instructions_button: "Enviar por email"
+      email_resend_unlock: "Correo Electrónico"
+      emails:
+        hello: "Hola"
+        locked_reason: "Su cuenta ha sido bloqueada dado el excesivo número de intentos de ingreso no satisfactorios."
+        click_to_unlock: "De clic en el enlace inferior para desbloquear su cuenta."
+        unlock_link_label: "Desbloquear mi cuenta"
+    global_labels:
+      yeap: "si"
+      nope: "no"
+      next: "Siguiente"
+      previous: "Anterior"
+      first: "Primero"
+      finish: "Terminar"
+      months: ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"]
+      form_validation:
+        required: "Este campo es requerido."
+      stat_table:
+        value: "Valor"
+        qty: "Cantidad"
+        of_total: "Porcentaje"
+        total: "Total"
+      back_to: "Regresar a"  
+      back_to_cases: "Todos los casos"
+      back_to_case: "Vista de caso"  
+      view_details: "Ver detalle"
+      results: "Resultados"
+      erp: "ERP"
+      loading: "Cargando"
+      add: "Agregar"
+      actions: "Acciones"
+    global:
+      configuration: "Configuración"
+      help: "Ayuda"
+      logout: "Salir"
+      config_admin_users: "Administradores"
+      format_parent_title: "Esquema de datos" 
+      config_parent_title: "Configuración"
+      users_parent_title: "Accesos"
+      log_parent_title: "Registros"
+      created_at: "Fecha de creación"
+      updated_at: "Fecha de actualización"
+      save_button: "Guardar"
+      cancel_button: "Cancelar"
+      action_items:
+        new: "Nuevo %{resource}"
+        edit: "Editar %{resource}"
+        delete: "Eliminar %{resource}"  
+      rfc: "RFC"
+      confirm: "Confirmación"
+      
+    main_menu:
+      home: "Inicio"
+      cfdi:
+        title: "Comprobantes"
+        list: "Listado"
+        new: "Generar Nuevo"
+
+    cfdi:
+      header:
+        title: "Facturar V3.3"
+        catalog: "Manual CFDI"
+      actions:
+        generate: "Generar CFDI"
+        save_continue: "Guardar y Continuar"
+        preview: "Vista Previa"
+        save: "Guardar"
+        save_continue: "Guardar y Continuar"
+        agregar_concepto: "Agregar Concepto"
+        back: "Volver"
+        cancelar_cfdi: "Cancelar CFDIs"
+        confirm_generate: "¿Confirma la generación del comprobante?"
+        confirm_cancel: "¿Confirma la cancelación del comprobante?"
+        justification: "Ingrese la justificación"
+        send_email: "Enviar comprobante"
+      steps:
+        sender: "Emisor"
+        receiver: "Receptor"
+        concepts: "Conceptos"
+        others: "Otros Datos"
+        complements: "Complemento Impuestos Locales"
+      messages:
+        cancelado: "Este comprobante se encuentra cancelado"
+        subject: " Comprobante de Factura Digital"
+        body: " Comprobante de Factura Digital con código: <b>%{uuid}</b>  <br><br>  En el siguiente enlace podra realizar la descarga en formato pdf."
+      
+
+
+    dashboard:
+      recent_clients: "Ultimos clientes registrados"
+
+    
+
+    regimen_fiscal:
+      resource_name: "Regimen Fiscal" 
+      resource_title: "Regimen Fiscal"
+      codigo_sat: "Código SAT"
+      descripcion: "Descripción"
+      fisica: "Fisica"
+      moral: "Moral"
+
+    forma_pago:
+      resource_name: "Forma de Pago" 
+      resource_title: "Forma de Pago"
+      codigo_sat: "Código SAT"
+      descripcion: "Descripción"
+
+    tipo_comprobante:
+      resource_name: "Tipo de Comprobante" 
+      resource_title: "Tipo de Comprobante"
+      codigo_sat: "Código SAT"
+      descripcion: "Descripción"
+
+    metodo_pago:
+      resource_name: "Método de Pago" 
+      resource_title: "Método de Pago"
+      codigo_sat: "Código SAT"
+      descripcion: "Descripción"
+
+    clave_unidad:
+      resource_name: "Unidad de Medida" 
+      resource_title: "Unidad de Medida"
+      codigo_sat: "Código SAT"
+      descripcion: "Descripción"
+      clave: "Código Interno"
+      simbolo: "Simbolo"
+
+    producto:
+      resource_name: "Producto/Servicio" 
+      resource_title: "Producto/Servicio"
+      codigo_sat: "Código SAT"
+      descripcion: "Descripción"
+      clave: "Clave Prod/Serv"
+    tipo_impuesto:
+      resource_name: "Tipo de Impuesto" 
+      resource_title: "Tipo de Impuesto"
+      descripcion: "Descripción"
+
+    impuesto:
+      resource_name: "Impuesto" 
+      resource_title: "Impuesto"
+      codigo_sat: "Código SAT"
+      descripcion: "Descripción"
+    tipo_factor:
+      resource_name: "Tipo de Factor" 
+      resource_title: "Tipo de Factor"
+      descripcion: "Descripción"
+    emisor:
+      resource_name: "Emisor" 
+      resource_title: "Emisor"
+      rfc: "RFC"
+      razon_social: "Razón Social"
+      nombre_comercial: "Nombre Comercial"
+      email: "Correo"
+      telefono: "Teléfono"
+      domicilio: "Domicilio Fiscal"
+      regimen_fiscal: "Regimen Fiscal"
+      sucursal: "Sucursal"
+      codigo_postal: "Código Postal"
+      direccion: "Especificar Domicilio Fiscal(Opcional)"
+    cliente:
+      resource_name: "Cliente" 
+      resource_title: "Cliente"
+      rfc: "RFC"
+      razon_social: "Razón Social"
+      email: "Correo"
+      domicilio: "Domicilio Fiscal"
+      nro_reg_id_trib: "NumRegIdTrib"
+      residencia_fiscal: "Residencia Fiscal"
+      uso_cfdi: "Uso de CFDI"
+    moneda:
+      resource_name: "Moneda" 
+      resource_title: "Moneda"
+      codigo_sat: "Código SAT"
+      descripcion: "Descripción"
+
+    domicilio_fiscal:
+      estado: "Estado"
+      municipio: "Municipio"
+      colonia: "Colonia"
+      codigo_postal: "Código Postal"
+      calle: "Calle"
+      localidad: "Localidad"
+      referencia: "Referencia"
+      numero_interior: "Numero Interior"
+      numero_exterior: "Numero Exterior"
+      pais: "Pais"
+    concepto:
+      clave_unidad: "Clave Unidad"
+      unidad_medida: "U.M"
+      cantidad: "Cantidad"
+      identificacion: "Identificación"
+      valor_unitario: "Valor Unitario"
+      importe: "Importe"
+      descuento: "Descuento"
+      importe_descuento: "Importe-Descuento"
+      impuestos: "Impuestos"
+      impuesto_iva: "Agregar impuesto con IVA 16%"
+      impuesto_tipo: "Tipo"
+      impuesto_base: "Base"
+      impuesto: "Impuesto"
+      tipo_factor: "Tipo Factor"
+      tasa_cuota: "Tasa o Cuota"
+      impuesto_importe: "Importe"
+      agregados: "Conceptos Agregados"
+      total: "Total"
+      traslados: "Impuestos Traslados"
+      retenciones: "Impuestos Retenidos"
+      subtotal: "SubTotal"
+      totales: "Totales"
+      moneda: "Moneda"
+    other:
+      metodo_pago: "Metodo de Pago"
+      forma_pago: "Forma de Pago"
+      confirmacion: "Confirmación"
+      condicion_pago: "Condición de Pago"
+      notas_cabecera: "Notas de Cabecera"
+      notas_pie: "Notas de Pie"
+      cfdi_relacionado: "CFDI Relacionados"
+      tipo_relacion: "Tipo de Relación"
+      listado_folios: "Listado de Folios"

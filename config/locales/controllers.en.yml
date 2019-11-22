@@ -1,0 +1,10 @@
+en:
+  password:
+    edit:
+      notice: "You must change your first password."
+    update:
+      notice: "The password has been updated successfully."
+      error: "The password update failed."
+  users:
+    create:
+      alert: 'There has been an error saving the user, please review the respective fields.'

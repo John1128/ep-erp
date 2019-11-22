@@ -1,0 +1,58 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ 
+ *= require vendor/growl-notification/dark-theme.min
+ *= require fonts/open-sans/style.min
+ *= require fonts/universe-admin/style
+ *= require fonts/mdi/css/materialdesignicons.min
+ *= require fonts/iconfont/style
+ *= require vendor/flatpickr/flatpickr.min
+ *= require vendor/simplebar/simplebar
+ *= require vendor/tagify/tagify
+ *= require vendor/tippyjs/tippy
+ *= require vendor/select2/css/select2.min
+ *= require vendor/bootstrap/css/bootstrap.min
+ *= require vendor/datatables/select.dataTables.min
+ *= require vendor/jquery-confirm/jquery-confirm.min
+ *= require css/style.min
+
+ */
+ 
+/*flash*/
+.alert-error {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+ }
+
+.alert-alert {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+ }
+
+.alert-success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: left;
+ }
+
+.alert-notice {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: left;
+ }
